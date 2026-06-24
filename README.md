@@ -1,7 +1,7 @@
 # Voidhalls
 Adds Backrooms inspired dimensions for the player to explore and survive if they dare.
 
-### For 1.21.1 Neoforge
+### Made for 1.21.1 Neoforge
 
 ## Requirements
 - Pale Gardens Backport
