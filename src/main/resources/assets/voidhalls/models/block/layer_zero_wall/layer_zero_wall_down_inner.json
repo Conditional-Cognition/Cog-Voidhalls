@@ -1,4 +1,5 @@
 {
+  "render_type": "minecraft:translucent",
   "textures": { "i": "voidhalls:block/layer_zero_wall_top", "particle": "voidhalls:block/layer_zero_wall_top" },
   "elements": [{ "from": [0,0,0], "to": [16,2,16],
     "faces": { "down": { "texture": "#i", "cullface": "down" }, "up": { "texture": "#i" } }
