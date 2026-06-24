@@ -9,7 +9,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModFluids {
     public static final DeferredRegister<Fluid> FLUIDS =
-            DeferredRegister.create(Registries.FLUID, "nonsense");
+            DeferredRegister.create(Registries.FLUID, "voidhalls");
 
     private static BaseFlowingFluid.Properties test_fluid_properties() {
         return new BaseFlowingFluid.Properties(

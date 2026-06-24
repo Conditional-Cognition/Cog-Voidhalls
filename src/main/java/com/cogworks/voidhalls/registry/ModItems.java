@@ -11,8 +11,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems("voidhalls");
 
-    public static final DeferredItem<Item> TEST_ITEM = ITEMS.registerItem("test_item",
-            props -> new BlockItem(ModBlocks.TEST_BLOCK.get(), props));
+    public static final DeferredItem<BlockItem> TEST_ITEM = ITEMS.registerSimpleBlockItem("test_item", ModBlocks.TEST_BLOCK);
 
     public static final DeferredItem<Item> TEST_FLUID_BUCKET =
             ITEMS.register("test_fluid_bucket",
