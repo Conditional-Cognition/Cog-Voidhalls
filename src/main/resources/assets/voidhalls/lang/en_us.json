@@ -1,8 +1,12 @@
 {
   "itemGroup.voidhalls": "Voidhalls General",
   "itemGroup.voidhalls.layer0": "Layer 0 - Lobby",
-  "itemGroup.voidhalls.layer1": "Layer 0 - Lobby",
+  "itemGroup.voidhalls.layer1": "Layer 1 - Industrial",
+
   "block.voidhalls.test_block": "Test Block",
+  "block.voidhalls.layer_zero_wall": "Layer Zero Wall",
+
+  "item.voidhalls.test_fluid_bucket": "Test Fluid Bucket",
   "item.voidhalls.test_item": "Test Item",
 
   "voidhalls.configuration.title": "Voidhalls Configs",

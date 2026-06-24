@@ -9,6 +9,8 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import com.cogworks.voidhalls.blocks.*;
+
 public class ModBlocks {
 
     public static final DeferredRegister.Blocks BLOCKS =
@@ -22,6 +24,11 @@ public class ModBlocks {
             BLOCKS.register("test_fluid_block", () -> new LiquidBlock(
                     ModFluids.TEST_FLUID_STILL.get(),
                     BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)
+            ));
+
+    public static final DeferredBlock<LayerZeroWallBlock> LAYER_ZERO_WALL =
+            BLOCKS.register("layer_zero_wall", () -> new LayerZeroWallBlock(
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()
             ));
 
     public static void register(IEventBus modEventBus) {
