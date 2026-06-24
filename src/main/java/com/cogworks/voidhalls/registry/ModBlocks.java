@@ -29,7 +29,7 @@ public class ModBlocks {
     public static final DeferredBlock<LayerZeroWallBlock> LAYER_ZERO_WALL =
             BLOCKS.register("layer_zero_wall", () -> new LayerZeroWallBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()
-            ));
+            )); // TODO: Make proper model before slicing up to make parts of (REDO THE WHOLE THING, BASICALLY) (at least it's registered...)
 
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);
