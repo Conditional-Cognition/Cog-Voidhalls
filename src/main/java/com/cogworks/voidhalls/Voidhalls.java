@@ -14,14 +14,12 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
-import static com.cogworks.voidhalls.registry.ModTabs.NONSENSE_TAB;
-
-@Mod(Nonsense.MODID)
-public class Nonsense {
+@Mod(Voidhalls.MODID)
+public class Voidhalls {
     public static final String MODID = "voidhalls";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public Nonsense(IEventBus modEventBus, ModContainer modContainer) {
+    public Voidhalls(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
 
         ModBlocks.register(modEventBus);
@@ -31,8 +29,8 @@ public class Nonsense {
 
         ModSounds.register(modEventBus);
 
-        ModFluidTypes.register(modEventBus);
-        ModFluids.register(modEventBus);
+        com.cogworks.voidhalls.registry.ModFluidTypes.register(modEventBus);
+        com.cogworks.voidhalls.registry.ModFluids.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

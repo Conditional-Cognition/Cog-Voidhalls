@@ -1,7 +1,8 @@
-package com.cogworks.nonsense.registry;
+package com.cogworks.voidhalls.registry;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.material.Fluid;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -12,7 +13,7 @@ public class ModFluids {
 
     private static BaseFlowingFluid.Properties test_fluid_properties() {
         return new BaseFlowingFluid.Properties(
-                ModFluidTypes.TEST_FLUID_TYPE,
+                com.cogworks.voidhalls.registry.ModFluidTypes.TEST_FLUID_TYPE,
                 TEST_FLUID_STILL,
                 TEST_FLUID_FLOWING
         )
@@ -28,7 +29,7 @@ public class ModFluids {
             FLUIDS.register("test_fluid_flowing",
                     () -> new BaseFlowingFluid.Flowing(test_fluid_properties()));
 
-    public static void register(iEventBus modEventBus) {
+    public static void register(IEventBus modEventBus) {
         FLUIDS.register(modEventBus);
     }
 }

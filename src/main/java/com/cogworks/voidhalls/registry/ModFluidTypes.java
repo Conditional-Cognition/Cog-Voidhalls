@@ -1,6 +1,7 @@
-package com.cogworks.nonsense.registry;
+package com.cogworks.voidhalls.registry;
 
 import net.minecraft.sounds.SoundEvents;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.SoundActions;
 import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -22,7 +23,7 @@ public class ModFluidTypes {
                             .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)
             ));
 
-    public static void register(iEventBus modEventBus) {
+    public static void register(IEventBus modEventBus) {
         FLUID_TYPES.register(modEventBus);
     }
 }
