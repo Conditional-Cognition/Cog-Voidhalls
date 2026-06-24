@@ -1,7 +1,11 @@
 {
-  "variants": {
-    "": {
-      "model": "voidhalls:block/test_block"
-    }
-  }
+  "multipart": [
+    { "apply": { "model": "voidhalls:block/layer_zero_wall_inner" } },
+    { "when": { "north": "true" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_north" } },
+    { "when": { "south": "true" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_south" } },
+    { "when": { "east": "true"  }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_east"  } },
+    { "when": { "west": "true"  }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_west"  } },
+    { "when": { "up": "true"    }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_up"    } },
+    { "when": { "down": "true"  }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_down"  } }
+  ]
 }

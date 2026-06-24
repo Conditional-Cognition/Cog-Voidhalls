@@ -16,6 +16,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
 public class LayerZeroWallBlock extends Block {
+    // NEEDS TO BE REDONE
 
     public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
     public static final BooleanProperty SOUTH = BlockStateProperties.SOUTH;
@@ -74,7 +75,10 @@ public class LayerZeroWallBlock extends Block {
             case UP    -> UP;
             case DOWN  -> DOWN;
         };
-        return state.setValue(prop, !neighborState.is(this));
+        if (neighborState.is(this)) {
+            return state.setValue(prop, false);
+        }
+        return state;
     }
 
     @Override
