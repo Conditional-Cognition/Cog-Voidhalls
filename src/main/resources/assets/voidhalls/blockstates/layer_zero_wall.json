@@ -1,16 +1,7 @@
 {
-  "multipart": [
-    { "when": { "north": "true"  }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_north_outer" } },
-    { "when": { "north": "false" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_north_inner" } },
-    { "when": { "south": "true"  }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_south_outer" } },
-    { "when": { "south": "false" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_south_inner" } },
-    { "when": { "east":  "true"  }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_east_outer"  } },
-    { "when": { "east":  "false" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_east_inner"  } },
-    { "when": { "west":  "true"  }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_west_outer"  } },
-    { "when": { "west":  "false" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_west_inner"  } },
-    { "when": { "up":    "true"  }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_up_outer"    } },
-    { "when": { "up":    "false" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_up_inner"    } },
-    { "when": { "down":  "true"  }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_down_outer"  } },
-    { "when": { "down":  "false" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_down_inner"  } }
-  ]
+  "variants": {
+    "": {
+      "model": "voidhalls:block/test_block"
+    }
+  }
 }
