@@ -1,0 +1,11 @@
+{
+  "itemGroup.voidhalls": "Voidhalls General",
+  "itemGroup.voidhalls.layer0": "Layer 0 - Lobby",
+  "itemGroup.voidhalls.layer1": "Layer 0 - Lobby",
+  "block.voidhalls.test_block": "Test Block",
+  "item.voidhalls.test_item": "Test Item",
+
+  "voidhalls.configuration.title": "Voidhalls Configs",
+  "voidhalls.configuration.section.voidhalls.common.toml": "Voidhalls Configs",
+  "voidhalls.configuration.section.voidhalls.common.toml.title": "Voidhalls Configs",
+}
