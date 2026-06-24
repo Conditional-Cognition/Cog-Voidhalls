@@ -1,0 +1,6 @@
+{
+  "textures": { "o": "voidhalls:block/layer_zero_wallpaper", "i": "voidhalls:block/layer_zero_wall_top", "particle": "voidhalls:block/layer_zero_wallpaper" },
+  "elements": [{ "from": [0,14,0], "to": [16,16,16],
+    "faces": { "up": { "texture": "#o", "cullface": "up" }, "down": { "texture": "#i" } }
+  }]
+}
