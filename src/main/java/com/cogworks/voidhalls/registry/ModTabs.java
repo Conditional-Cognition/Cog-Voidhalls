@@ -25,7 +25,7 @@ public class ModTabs {
             CREATIVE_MODE_TABS.register("voidhalls_layer_0_tab", () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.voidhalls.layer0"))
                     .withTabsBefore(CreativeModeTabs.COMBAT)
-                    .icon(() -> ModItems.TEST_FLUID_BUCKET.get().getDefaultInstance())
+                    .icon(() -> ModItems.LAYER_ZERO_WALL.get().getDefaultInstance())
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.LAYER_ZERO_WALLPAPER.get());
                         output.accept(ModItems.LAYER_ZERO_WALL.get());
