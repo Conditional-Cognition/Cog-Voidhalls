@@ -1,8 +1,6 @@
 package com.cogworks.voidhalls.registry;
 
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -28,14 +26,21 @@ public class ModBlocks {
 
     public static final DeferredBlock<LayerWallpaperBlock> LAYER_ZERO_WALLPAPER =
             BLOCKS.register("layer_zero_wallpaper", () -> new LayerWallpaperBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS).noOcclusion()
             ));
     public static final DeferredBlock<Block> LAYER_ZERO_WALL =
             BLOCKS.registerSimpleBlock("layer_zero_wall",
                     BlockBehaviour.Properties.ofFullCopy(Blocks.STONE));
+    public static final DeferredHolder<Block, StairBlock> LAYER_ZERO_WALL_STAIRS =
+        BLOCKS.register("layer_zero_wall_stairs", () -> new StairBlock(
+                ModBlocks.LAYER_ZERO_WALL.get().defaultBlockState(),
+                BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+    public static final DeferredHolder<Block, SlabBlock> LAYER_ZERO_WALL_SLAB =
+        BLOCKS.register("layer_zero_wall_slab", () -> new SlabBlock(
+                BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
     public static final DeferredBlock<Block> LAYER_ZERO_CEILING_TILE =
             BLOCKS.registerSimpleBlock("layer_zero_ceiling_tile",
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.STONE));
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE));
     public static final DeferredBlock<Block> LAYER_ZERO_SCAFFOLD =
             BLOCKS.registerSimpleBlock("layer_zero_scaffold",
                     BlockBehaviour.Properties.ofFullCopy(Blocks.SCAFFOLDING));

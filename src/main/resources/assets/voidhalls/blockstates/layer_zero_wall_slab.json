@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "voidhalls:block/layer_zero_wall_slab"     },
+    "type=top":    { "model": "voidhalls:block/layer_zero_wall_slab_top" },
+    "type=double": { "model": "voidhalls:block/layer_zero_wall"          }
+  }
+}

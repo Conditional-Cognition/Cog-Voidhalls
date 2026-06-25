@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "voidhalls:block/layer_zero_wallpaper",
+    "top":    "voidhalls:block/layer_zero_wallpaper",
+    "side":   "voidhalls:block/layer_zero_wallpaper"
+  }
+}

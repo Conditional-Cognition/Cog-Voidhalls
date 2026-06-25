@@ -24,6 +24,10 @@ public class ModItems {
             ITEMS.registerSimpleBlockItem("layer_zero_wallpaper", ModBlocks.LAYER_ZERO_WALLPAPER);
     public static final DeferredItem<BlockItem> LAYER_ZERO_WALL =
             ITEMS.registerSimpleBlockItem("layer_zero_wall", ModBlocks.LAYER_ZERO_WALL);
+    public static final DeferredItem<BlockItem> LAYER_ZERO_WALL_STAIRS =
+            ITEMS.registerSimpleBlockItem("layer_zero_wall_stairs", ModBlocks.LAYER_ZERO_WALL_STAIRS);
+    public static final DeferredItem<BlockItem> LAYER_ZERO_WALL_SLAB =
+            ITEMS.registerSimpleBlockItem("layer_zero_wall_slab", ModBlocks.LAYER_ZERO_WALL_SLAB);
     public static final DeferredItem<BlockItem> LAYER_ZERO_CEILING_TILE =
             ITEMS.registerSimpleBlockItem("layer_zero_ceiling_tile", ModBlocks.LAYER_ZERO_CEILING_TILE);
     public static final DeferredItem<BlockItem> LAYER_ZERO_SCAFFOLD =

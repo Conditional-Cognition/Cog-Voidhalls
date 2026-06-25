@@ -5,6 +5,9 @@
 
   "block.voidhalls.test_block": "Test Block",
   "block.voidhalls.layer_zero_wall": "Layer Zero Wall",
+  "block.voidhalls.layer_zero_wallpaper": "Layer Zero Wallpaper",
+  "block.voidhalls.layer_zero_ceiling_tile": "Layer Zero Ceiling Tile",
+  "block.voidhalls.layer_zero_scaffold": "Layer Zero Scaffold",
 
   "item.voidhalls.test_fluid_bucket": "Test Fluid Bucket",
   "item.voidhalls.test_item": "Test Item",

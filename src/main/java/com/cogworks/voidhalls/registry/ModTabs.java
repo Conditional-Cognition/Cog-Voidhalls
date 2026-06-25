@@ -29,6 +29,8 @@ public class ModTabs {
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.LAYER_ZERO_WALLPAPER.get());
                         output.accept(ModItems.LAYER_ZERO_WALL.get());
+                        output.accept(ModItems.LAYER_ZERO_WALL_STAIRS.get());
+                        output.accept(ModItems.LAYER_ZERO_WALL_SLAB.get());
                         output.accept(ModItems.LAYER_ZERO_CEILING_TILE.get());
                         output.accept(ModItems.LAYER_ZERO_SCAFFOLD.get());
                     }).build());
