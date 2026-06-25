@@ -15,7 +15,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class LayerZeroWallBlock extends Block {
+public class LayerWallBlock extends Block {
 
     public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
     public static final BooleanProperty SOUTH = BlockStateProperties.SOUTH;
@@ -55,7 +55,7 @@ public class LayerZeroWallBlock extends Block {
                 | (state.getValue(DOWN)  ? 32 : 0);
     }
 
-    public LayerZeroWallBlock(Properties properties) {
+    public LayerWallBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(NORTH, true).setValue(SOUTH, true)
@@ -73,12 +73,12 @@ public class LayerZeroWallBlock extends Block {
         LevelAccessor level = ctx.getLevel();
         BlockPos pos = ctx.getClickedPos();
         return this.defaultBlockState()
-                .setValue(NORTH, !level.getBlockState(pos.relative(Direction.NORTH)).is(this))
-                .setValue(SOUTH, !level.getBlockState(pos.relative(Direction.SOUTH)).is(this))
-                .setValue(EAST,  !level.getBlockState(pos.relative(Direction.EAST)).is(this))
-                .setValue(WEST,  !level.getBlockState(pos.relative(Direction.WEST)).is(this))
-                .setValue(UP,    !level.getBlockState(pos.relative(Direction.UP)).is(this))
-                .setValue(DOWN,  !level.getBlockState(pos.relative(Direction.DOWN)).is(this));
+                .setValue(NORTH, !level.getBlockState(pos.relative(Direction.NORTH)).isSolidRender(level, pos.relative(Direction.NORTH)) || !level.getBlockState(pos.relative(Direction.NORTH)).is(this))
+                .setValue(SOUTH, !level.getBlockState(pos.relative(Direction.SOUTH)).isSolidRender(level, pos.relative(Direction.SOUTH)) || !level.getBlockState(pos.relative(Direction.SOUTH)).is(this))
+                .setValue(EAST,  !level.getBlockState(pos.relative(Direction.EAST)).isSolidRender(level,  pos.relative(Direction.EAST)) || !level.getBlockState(pos.relative(Direction.EAST)).is(this))
+                .setValue(WEST,  !level.getBlockState(pos.relative(Direction.WEST)).isSolidRender(level,  pos.relative(Direction.WEST)) || !level.getBlockState(pos.relative(Direction.WEST)).is(this))
+                .setValue(UP,    !level.getBlockState(pos.relative(Direction.UP)).isSolidRender(level,    pos.relative(Direction.UP)) || !level.getBlockState(pos.relative(Direction.UP)).is(this))
+                .setValue(DOWN,  !level.getBlockState(pos.relative(Direction.DOWN)).isSolidRender(level,  pos.relative(Direction.DOWN)) || !level.getBlockState(pos.relative(Direction.DOWN)).is(this));
     }
 
     @Override
@@ -92,7 +92,7 @@ public class LayerZeroWallBlock extends Block {
             case UP    -> UP;
             case DOWN  -> DOWN;
         };
-        if (neighborState.is(this)) {
+        if (neighborState.isSolidRender(level, neighborPos) || neighborState.is(this)) {
             return state.setValue(prop, false);
         }
         return state;

@@ -26,8 +26,8 @@ public class ModBlocks {
                     BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)
             ));
 
-    public static final DeferredBlock<LayerZeroWallBlock> LAYER_ZERO_WALL =
-            BLOCKS.register("layer_zero_wall", () -> new LayerZeroWallBlock(
+    public static final DeferredBlock<LayerWallBlock> LAYER_ZERO_WALL =
+            BLOCKS.register("layer_zero_wall", () -> new LayerWallBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()
             ));
 
