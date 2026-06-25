@@ -36,6 +36,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> LAYER_ZERO_CEILING_TILE =
             BLOCKS.registerSimpleBlock("layer_zero_ceiling_tile",
                     BlockBehaviour.Properties.ofFullCopy(Blocks.STONE));
+    public static final DeferredBlock<Block> LAYER_ZERO_SCAFFOLD =
+            BLOCKS.registerSimpleBlock("layer_zero_scaffold",
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.SCAFFOLDING));
 
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);

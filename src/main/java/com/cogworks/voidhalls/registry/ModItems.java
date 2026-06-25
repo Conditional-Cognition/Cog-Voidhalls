@@ -26,6 +26,8 @@ public class ModItems {
             ITEMS.registerSimpleBlockItem("layer_zero_wall", ModBlocks.LAYER_ZERO_WALL);
     public static final DeferredItem<BlockItem> LAYER_ZERO_CEILING_TILE =
             ITEMS.registerSimpleBlockItem("layer_zero_ceiling_tile", ModBlocks.LAYER_ZERO_CEILING_TILE);
+    public static final DeferredItem<BlockItem> LAYER_ZERO_SCAFFOLD =
+            ITEMS.registerSimpleBlockItem("layer_zero_scaffold", ModBlocks.LAYER_ZERO_SCAFFOLD);
 
     public static void register(IEventBus modEventBus) {
         ITEMS.register(modEventBus);

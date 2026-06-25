@@ -30,6 +30,7 @@ public class ModTabs {
                         output.accept(ModItems.LAYER_ZERO_WALLPAPER.get());
                         output.accept(ModItems.LAYER_ZERO_WALL.get());
                         output.accept(ModItems.LAYER_ZERO_CEILING_TILE.get());
+                        output.accept(ModItems.LAYER_ZERO_SCAFFOLD.get());
                     }).build());
 
     public static void register(IEventBus modEventBus) {
