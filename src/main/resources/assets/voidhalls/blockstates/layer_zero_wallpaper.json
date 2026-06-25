@@ -1,0 +1,10 @@
+{
+  "multipart": [
+    { "when": { "north": "true" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_inner_north" } },
+    { "when": { "south": "true" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_inner_south" } },
+    { "when": { "east":  "true" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_inner_east"  } },
+    { "when": { "west":  "true" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_inner_west"  } },
+    { "when": { "up":    "true" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_inner_up"    } },
+    { "when": { "down":  "true" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_inner_down"  } }
+  ]
+}

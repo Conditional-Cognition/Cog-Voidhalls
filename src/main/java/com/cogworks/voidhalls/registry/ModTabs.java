@@ -27,7 +27,9 @@ public class ModTabs {
                     .withTabsBefore(CreativeModeTabs.COMBAT)
                     .icon(() -> ModItems.TEST_FLUID_BUCKET.get().getDefaultInstance())
                     .displayItems((parameters, output) -> {
+                        output.accept(ModItems.LAYER_ZERO_WALLPAPER.get());
                         output.accept(ModItems.LAYER_ZERO_WALL.get());
+                        output.accept(ModItems.LAYER_ZERO_CEILING_TILE.get());
                     }).build());
 
     public static void register(IEventBus modEventBus) {

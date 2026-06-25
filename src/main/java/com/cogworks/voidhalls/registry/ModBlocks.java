@@ -26,10 +26,16 @@ public class ModBlocks {
                     BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)
             ));
 
-    public static final DeferredBlock<LayerWallBlock> LAYER_ZERO_WALL =
-            BLOCKS.register("layer_zero_wall", () -> new LayerWallBlock(
+    public static final DeferredBlock<LayerWallpaperBlock> LAYER_ZERO_WALLPAPER =
+            BLOCKS.register("layer_zero_wallpaper", () -> new LayerWallpaperBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()
             ));
+    public static final DeferredBlock<Block> LAYER_ZERO_WALL =
+            BLOCKS.registerSimpleBlock("layer_zero_wall",
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.STONE));
+    public static final DeferredBlock<Block> LAYER_ZERO_CEILING_TILE =
+            BLOCKS.registerSimpleBlock("layer_zero_ceiling_tile",
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.STONE));
 
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);

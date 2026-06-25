@@ -20,8 +20,12 @@ public class ModItems {
                             new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)
                     ));
 
+    public static final DeferredItem<BlockItem> LAYER_ZERO_WALLPAPER =
+            ITEMS.registerSimpleBlockItem("layer_zero_wallpaper", ModBlocks.LAYER_ZERO_WALLPAPER);
     public static final DeferredItem<BlockItem> LAYER_ZERO_WALL =
             ITEMS.registerSimpleBlockItem("layer_zero_wall", ModBlocks.LAYER_ZERO_WALL);
+    public static final DeferredItem<BlockItem> LAYER_ZERO_CEILING_TILE =
+            ITEMS.registerSimpleBlockItem("layer_zero_ceiling_tile", ModBlocks.LAYER_ZERO_CEILING_TILE);
 
     public static void register(IEventBus modEventBus) {
         ITEMS.register(modEventBus);

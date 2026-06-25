@@ -16,7 +16,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class LayerWallBlock extends Block {
+public class LayerWallpaperBlock extends Block {
 
     public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
     public static final BooleanProperty SOUTH = BlockStateProperties.SOUTH;
@@ -56,7 +56,7 @@ public class LayerWallBlock extends Block {
                 | (state.getValue(DOWN)  ? 32 : 0);
     }
 
-    public LayerWallBlock(Properties properties) {
+    public LayerWallpaperBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(NORTH, true).setValue(SOUTH, true)
