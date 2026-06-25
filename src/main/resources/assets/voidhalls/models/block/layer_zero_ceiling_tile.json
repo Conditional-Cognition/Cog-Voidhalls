@@ -3,7 +3,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/cube_all",
 	"textures": {
-		"1": "voidhalls:block/layer_zero_scaffold",
+		"1": "voidhalls:block/layer_zero_scaffold_filled",
 		"particle": "voidhalls:block/layer_zero_ceiling_tile",
 		"all": "voidhalls:block/layer_zero_ceiling_tiles"
 	},
