@@ -1,0 +1,20 @@
+{
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "outer": "voidhalls:block/layer_zero_wallpaper",
+    "inner_top": "voidhalls:block/layer_zero_wall_top"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0], "to": [16, 0, 16],
+      "faces": { "up": { "uv": [0, 0, 16, 16], "texture": "#outer" } }
+    },
+    {
+      "from": [0, 0.1, 0], "to": [16, 0.1, 16],
+      "faces": {
+        "up":   { "uv": [0, 0, 16, 16], "texture": "#inner_top" },
+        "down": { "uv": [0, 0, 16, 16], "texture": "#inner_top" }
+      }
+    }
+  ]
+}
