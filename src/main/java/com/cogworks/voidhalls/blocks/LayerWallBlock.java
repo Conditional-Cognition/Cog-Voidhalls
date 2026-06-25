@@ -6,6 +6,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -72,19 +73,25 @@ public class LayerWallBlock extends Block {
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {
         LevelAccessor level = ctx.getLevel();
         BlockPos pos = ctx.getClickedPos();
-        return this.defaultBlockState()
-                .setValue(NORTH, !level.getBlockState(pos.relative(Direction.NORTH)).isSolidRender(level, pos.relative(Direction.NORTH)) || !level.getBlockState(pos.relative(Direction.NORTH)).is(this))
-                .setValue(SOUTH, !level.getBlockState(pos.relative(Direction.SOUTH)).isSolidRender(level, pos.relative(Direction.SOUTH)) || !level.getBlockState(pos.relative(Direction.SOUTH)).is(this))
-                .setValue(EAST,  !level.getBlockState(pos.relative(Direction.EAST)).isSolidRender(level,  pos.relative(Direction.EAST)) || !level.getBlockState(pos.relative(Direction.EAST)).is(this))
-                .setValue(WEST,  !level.getBlockState(pos.relative(Direction.WEST)).isSolidRender(level,  pos.relative(Direction.WEST)) || !level.getBlockState(pos.relative(Direction.WEST)).is(this))
-                .setValue(UP,    !level.getBlockState(pos.relative(Direction.UP)).isSolidRender(level,    pos.relative(Direction.UP)) || !level.getBlockState(pos.relative(Direction.UP)).is(this))
-                .setValue(DOWN,  !level.getBlockState(pos.relative(Direction.DOWN)).isSolidRender(level,  pos.relative(Direction.DOWN)) || !level.getBlockState(pos.relative(Direction.DOWN)).is(this));
+
+        BlockState state = this.defaultBlockState();
+        for (Direction dir : Direction.values()) {
+            BlockPos neighborPos = pos.relative(dir);
+            BlockState neighborState = level.getBlockState(neighborPos);
+            boolean hidden = neighborState.isSolidRender(level, neighborPos) || neighborState.is(this);
+            state = state.setValue(propertyFor(dir), !hidden);
+        }
+        boolean allFalse = !state.getValue(NORTH) && !state.getValue(SOUTH)
+                && !state.getValue(EAST)  && !state.getValue(WEST)
+                && !state.getValue(UP)    && !state.getValue(DOWN);
+        if (allFalse) {
+            return Blocks.AIR.defaultBlockState();
+        }
+        return state;
     }
 
-    @Override
-    public @NotNull BlockState updateShape(@NotNull BlockState state, Direction dir, @NotNull BlockState neighborState,
-                                           @NotNull LevelAccessor level, @NotNull BlockPos pos, @NotNull BlockPos neighborPos) {
-        BooleanProperty prop = switch (dir) {
+    private static BooleanProperty propertyFor(Direction dir) {
+        return switch (dir) {
             case NORTH -> NORTH;
             case SOUTH -> SOUTH;
             case EAST  -> EAST;
@@ -92,8 +99,21 @@ public class LayerWallBlock extends Block {
             case UP    -> UP;
             case DOWN  -> DOWN;
         };
+    }
+
+    @Override
+    public @NotNull BlockState updateShape(@NotNull BlockState state, @NotNull Direction dir, @NotNull BlockState neighborState,
+                                           @NotNull LevelAccessor level, @NotNull BlockPos pos, @NotNull BlockPos neighborPos) {
+        BooleanProperty prop = propertyFor(dir);
+
         if (neighborState.isSolidRender(level, neighborPos) || neighborState.is(this)) {
-            return state.setValue(prop, false);
+            state = state.setValue(prop, false);
+        }
+        boolean allFalse = !state.getValue(NORTH) && !state.getValue(SOUTH)
+                && !state.getValue(EAST)  && !state.getValue(WEST)
+                && !state.getValue(UP)    && !state.getValue(DOWN);
+        if (allFalse) {
+            return net.minecraft.world.level.block.Blocks.AIR.defaultBlockState();
         }
         return state;
     }
