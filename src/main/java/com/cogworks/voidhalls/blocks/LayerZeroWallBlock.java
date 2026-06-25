@@ -24,14 +24,36 @@ public class LayerZeroWallBlock extends Block {
     public static final BooleanProperty UP    = BlockStateProperties.UP;
     public static final BooleanProperty DOWN  = BlockStateProperties.DOWN;
 
-    private static final VoxelShape SHAPE = Shapes.or(
-            Block.box(0,  0,  0,  16, 2,  16),
-            Block.box(0,  14, 0,  16, 16, 16),
-            Block.box(0,  0,  0,  2,  16, 16),
-            Block.box(14, 0,  0,  16, 16, 16),
-            Block.box(0,  0,  0,  16, 16, 2 ),
-            Block.box(0,  0,  14, 16, 16, 16)
-    );
+    private static final VoxelShape[] SHAPES = new VoxelShape[64];
+
+    static {
+        VoxelShape[] faces = {
+                Block.box(0,  0,  0,  16, 16, 1 ),
+                Block.box(0,  0,  15, 16, 16, 16),
+                Block.box(15, 0,  0,  16, 16, 16),
+                Block.box(0,  0,  0,  1,  16, 16),
+                Block.box(0,  15, 0,  16, 16, 16),
+                Block.box(0,  0,  0,  16, 1,  16),
+        };
+        for (int i = 0; i < 64; i++) {
+            VoxelShape shape = Shapes.empty();
+            for (int bit = 0; bit < 6; bit++) {
+                if ((i & (1 << bit)) != 0) {
+                    shape = Shapes.or(shape, faces[bit]);
+                }
+            }
+            SHAPES[i] = shape;
+        }
+    }
+
+    private static int shapeIndex(BlockState state) {
+        return (state.getValue(NORTH) ? 1  : 0)
+                | (state.getValue(SOUTH) ? 2  : 0)
+                | (state.getValue(EAST)  ? 4  : 0)
+                | (state.getValue(WEST)  ? 8  : 0)
+                | (state.getValue(UP)    ? 16 : 0)
+                | (state.getValue(DOWN)  ? 32 : 0);
+    }
 
     public LayerZeroWallBlock(Properties properties) {
         super(properties);
@@ -78,6 +100,6 @@ public class LayerZeroWallBlock extends Block {
 
     @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext ctx) {
-        return SHAPE;
+        return SHAPES[shapeIndex(state)];
     }
 }
