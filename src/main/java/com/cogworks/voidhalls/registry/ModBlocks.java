@@ -24,6 +24,47 @@ public class ModBlocks {
                     BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)
             ));
 
+    private static DeferredBlock<ModTableBlock> registerTable(String name, Block plankBlock) {
+        return BLOCKS.register(
+                name,
+                () -> new ModTableBlock(
+                        BlockBehaviour.Properties.ofFullCopy(plankBlock)
+                )
+        );
+    }
+
+    public static final DeferredBlock<ModTableBlock> OAK_TABLE =
+            registerTable("oak_table", Blocks.OAK_PLANKS);
+    public static final DeferredBlock<ModTableBlock> SPRUCE_TABLE =
+            registerTable("spruce_table", Blocks.SPRUCE_PLANKS);
+    public static final DeferredBlock<ModTableBlock> BIRCH_TABLE =
+            registerTable("birch_table", Blocks.BIRCH_PLANKS);
+    public static final DeferredBlock<ModTableBlock> JUNGLE_TABLE =
+            registerTable("jungle_table", Blocks.JUNGLE_PLANKS);
+    public static final DeferredBlock<ModTableBlock> ACACIA_TABLE =
+            registerTable("acacia_table", Blocks.ACACIA_PLANKS);
+    public static final DeferredBlock<ModTableBlock> DARK_OAK_TABLE =
+            registerTable("dark_oak_table", Blocks.DARK_OAK_PLANKS);
+    public static final DeferredBlock<ModTableBlock> MANGROVE_TABLE =
+            registerTable("mangrove_table", Blocks.MANGROVE_PLANKS);
+    public static final DeferredBlock<ModTableBlock> CHERRY_TABLE =
+            registerTable("cherry_table", Blocks.CHERRY_PLANKS);
+    public static final DeferredBlock<ModTableBlock> BAMBOO_TABLE =
+            registerTable("bamboo_table", Blocks.BAMBOO_PLANKS);
+    public static final DeferredBlock<ModTableBlock> CRIMSON_TABLE =
+            registerTable("crimson_table", Blocks.CRIMSON_PLANKS);
+    public static final DeferredBlock<ModTableBlock> WARPED_TABLE =
+            registerTable("warped_table", Blocks.WARPED_PLANKS);
+
+    public static final DeferredBlock<ModTableBlock> DIORITE_TABLE =
+            registerTable("diorite_table", Blocks.IRON_TRAPDOOR);
+    public static final DeferredBlock<ModTableBlock> ANDESITE_TABLE =
+            registerTable("andesite_table", Blocks.IRON_TRAPDOOR);
+    public static final DeferredBlock<ModTableBlock> GRANITE_TABLE =
+            registerTable("granite_table", Blocks.IRON_TRAPDOOR);
+    public static final DeferredBlock<ModTableBlock> STONE_TABLE =
+            registerTable("stone_table", Blocks.IRON_TRAPDOOR);
+
     public static final DeferredBlock<LayerWallpaperBlock> LAYER_ZERO_WALLPAPER =
             BLOCKS.register("layer_zero_wallpaper", () -> new LayerWallpaperBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS).noOcclusion()

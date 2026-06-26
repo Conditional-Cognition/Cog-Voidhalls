@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "axis=x": { "model": "voidhalls:block/bamboo_table" },
+    "axis=z": { "model": "voidhalls:block/bamboo_table", "y": 90 }
+  }
+}

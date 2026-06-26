@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "axis=x": { "model": "voidhalls:block/andesite_table" },
+    "axis=z": { "model": "voidhalls:block/andesite_table", "y": 90 }
+  }
+}

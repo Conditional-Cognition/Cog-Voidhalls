@@ -20,6 +20,30 @@ public class ModTabs {
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.TEST_ITEM.get());
                         output.accept(ModItems.TEST_FLUID_BUCKET.get());
+
+                        output.accept(ModItems.WOODEN_TABLESPOON.get());
+                        output.accept(ModItems.STONE_TABLESPOON.get());
+                        output.accept(ModItems.IRON_TABLESPOON.get());
+                        output.accept(ModItems.GOLDEN_TABLESPOON.get());
+                        output.accept(ModItems.DIAMOND_TABLESPOON.get());
+                        output.accept(ModItems.NETHERITE_TABLESPOON.get());
+
+                        output.accept(ModItems.OAK_TABLE.get());
+                        output.accept(ModItems.SPRUCE_TABLE.get());
+                        output.accept(ModItems.BIRCH_TABLE.get());
+                        output.accept(ModItems.JUNGLE_TABLE.get());
+                        output.accept(ModItems.ACACIA_TABLE.get());
+                        output.accept(ModItems.DARK_OAK_TABLE.get());
+                        output.accept(ModItems.MANGROVE_TABLE.get());
+                        output.accept(ModItems.CHERRY_TABLE.get());
+                        output.accept(ModItems.BAMBOO_TABLE.get());
+                        output.accept(ModItems.CRIMSON_TABLE.get());
+                        output.accept(ModItems.WARPED_TABLE.get());
+
+                        output.accept(ModItems.ANDESITE_TABLE.get());
+                        output.accept(ModItems.GRANITE_TABLE.get());
+                        output.accept(ModItems.DIORITE_TABLE.get());
+                        output.accept(ModItems.STONE_TABLE.get());
                     }).build());
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> LAYER_0_TAB =
             CREATIVE_MODE_TABS.register("voidhalls_layer_0_tab", () -> CreativeModeTab.builder()

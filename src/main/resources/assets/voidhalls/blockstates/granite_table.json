@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "axis=x": { "model": "voidhalls:block/granite_table" },
+    "axis=z": { "model": "voidhalls:block/granite_table", "y": 90 }
+  }
+}

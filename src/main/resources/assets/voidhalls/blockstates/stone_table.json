@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "axis=x": { "model": "voidhalls:block/stone_table" },
+    "axis=z": { "model": "voidhalls:block/stone_table", "y": 90 }
+  }
+}

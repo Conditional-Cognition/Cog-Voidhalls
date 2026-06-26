@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "axis=x": { "model": "voidhalls:block/crimson_table" },
+    "axis=z": { "model": "voidhalls:block/crimson_table", "y": 90 }
+  }
+}

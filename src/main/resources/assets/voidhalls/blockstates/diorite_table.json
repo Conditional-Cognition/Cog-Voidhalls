@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "axis=x": { "model": "voidhalls:block/diorite_table" },
+    "axis=z": { "model": "voidhalls:block/diorite_table", "y": 90 }
+  }
+}
