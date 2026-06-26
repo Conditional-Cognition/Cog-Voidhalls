@@ -2,6 +2,7 @@ package com.cogworks.voidhalls;
 
 import com.cogworks.voidhalls.registry.ModFluidTypes;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -9,6 +10,7 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterNamedRenderTypesEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
@@ -49,5 +51,13 @@ public class VoidhallsClient {
                 return 0xDDEE00EE;
             }
         }, ModFluidTypes.TEST_FLUID_TYPE.get());
+    }
+    @SubscribeEvent
+    public static void onRegisterRenderTypes(RegisterNamedRenderTypesEvent event) {
+        event.register(
+                ResourceLocation.fromNamespaceAndPath("voidhalls", "test_fluid_block"),
+                RenderType.translucent(),
+                RenderType.translucentMovingBlock()
+        );
     }
 }
