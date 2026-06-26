@@ -71,20 +71,20 @@ public class ModBlocks {
             ));
     public static final DeferredBlock<Block> LAYER_ZERO_WALL =
             BLOCKS.registerSimpleBlock("layer_zero_wall",
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.STONE));
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS));
     public static final DeferredHolder<Block, StairBlock> LAYER_ZERO_WALL_STAIRS =
         BLOCKS.register("layer_zero_wall_stairs", () -> new StairBlock(
                 ModBlocks.LAYER_ZERO_WALL.get().defaultBlockState(),
-                BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+                BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_STAIRS)));
     public static final DeferredHolder<Block, SlabBlock> LAYER_ZERO_WALL_SLAB =
         BLOCKS.register("layer_zero_wall_slab", () -> new SlabBlock(
-                BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+                BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_SLAB)));
     public static final DeferredBlock<Block> LAYER_ZERO_CEILING_TILE =
             BLOCKS.registerSimpleBlock("layer_zero_ceiling_tile",
                     BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE));
     public static final DeferredBlock<Block> LAYER_ZERO_SCAFFOLD =
             BLOCKS.registerSimpleBlock("layer_zero_scaffold",
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.SCAFFOLDING));
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS));
 
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);
