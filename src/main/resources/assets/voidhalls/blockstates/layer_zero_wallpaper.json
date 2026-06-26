@@ -1,7 +1,7 @@
 {
   "multipart": [
     {
-      "apply": { "model": "voidhalls:block/layer_zero_wall_part" }
+      "apply": { "model": "voidhalls:block/layer_zero_wallpaper_part" }
     },
     { "when": { "north": "true" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_inner_north" } },
     { "when": { "south": "true" }, "apply": { "model": "voidhalls:block/layer_zero_wall/layer_zero_wall_inner_south" } },
