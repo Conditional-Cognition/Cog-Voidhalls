@@ -3,6 +3,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/block",
 	"textures": {
+		"particle": "minecraft:block/acacia_planks",
 		"0": "minecraft:block/acacia_planks",
 		"1": "minecraft:block/acacia_log"
 	},

@@ -3,7 +3,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/block",
 	"textures": {
-		"particles": "minecraft:block/oak_planks",
+		"particle": "minecraft:block/oak_planks",
 		"0": "minecraft:block/oak_planks",
 		"1": "minecraft:block/oak_log"
 	},

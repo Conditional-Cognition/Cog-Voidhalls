@@ -4,7 +4,7 @@
 	"parent": "minecraft:block/cube_all",
 	"textures": {
 		"1": "voidhalls:block/layer_zero_scaffold_filled",
-		"particle": "voidhalls:block/layer_zero_ceiling_tile",
+		"particle": "voidhalls:block/layer_zero_ceiling_tiles",
 		"all": "voidhalls:block/layer_zero_ceiling_tiles"
 	},
 	"elements": [

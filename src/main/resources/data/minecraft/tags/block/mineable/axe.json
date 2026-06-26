@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "voidhalls:layer_zero_wallpaper",
+    "voidhalls:layer_zero_wall",
+    "voidhalls:layer_zero_wall_stairs",
+    "voidhalls:layer_zero_wall_slab",
+    "voidhalls:acacia_table",
+    "voidhalls:bamboo_table",
+    "voidhalls:birch_table",
+    "voidhalls:cherry_table",
+    "voidhalls:crimson_table",
+    "voidhalls:dark_oak_table",
+    "voidhalls:jungle_table",
+    "voidhalls:mangrove_table",
+    "voidhalls:oak_table",
+    "voidhalls:spruce_table",
+    "voidhalls:warped_table"
+  ]
+}

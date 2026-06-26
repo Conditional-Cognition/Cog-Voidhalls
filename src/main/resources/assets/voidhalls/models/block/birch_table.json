@@ -3,6 +3,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/block",
 	"textures": {
+		"particle": "minecraft:block/birch_planks",
 		"0": "minecraft:block/birch_planks",
 		"1": "minecraft:block/birch_log"
 	},

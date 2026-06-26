@@ -3,7 +3,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/block",
 	"textures": {
-		"particles": "minecraft:block/spruce_planks",
+		"particle": "minecraft:block/spruce_planks",
 		"0": "minecraft:block/spruce_planks",
 		"1": "minecraft:block/spruce_log"
 	},

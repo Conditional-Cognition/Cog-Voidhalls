@@ -3,6 +3,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/block",
 	"textures": {
+		"particle": "minecraft:block/bamboo_planks",
 		"0": "minecraft:block/bamboo_planks",
 		"1": "minecraft:block/stripped_bamboo_block"
 	},

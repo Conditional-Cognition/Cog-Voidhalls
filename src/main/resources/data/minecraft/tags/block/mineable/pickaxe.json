@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "voidhalls:layer_zero_wall",
+    "voidhalls:layer_zero_wall_stairs",
+    "voidhalls:layer_zero_wall_slab",
+    "voidhalls:layer_zero_ceiling_tile",
+    "voidhalls:andesite_table",
+    "voidhalls:diorite_table",
+    "voidhalls:granite_table",
+    "voidhalls:stone_table",
+    "voidhalls:layer_zero_scaffold",
+    "voidhalls:layer_zero_wallpaper"
+  ]
+}
