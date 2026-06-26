@@ -4,6 +4,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public class ModMusicDiscItem extends Item {
     public ModMusicDiscItem(Properties properties) {
@@ -11,7 +12,7 @@ public class ModMusicDiscItem extends Item {
     }
 
     @Override
-    public Component getName(ItemStack stack) {
+    public @NotNull Component getName(@NotNull ItemStack stack) {
         return super.getName(stack).copy().withStyle(ChatFormatting.AQUA);
     }
 }
