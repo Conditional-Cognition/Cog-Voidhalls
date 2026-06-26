@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nonsense:oak_table"
+          "name": "voidhalls:oak_table"
         }
       ],
       "conditions": [

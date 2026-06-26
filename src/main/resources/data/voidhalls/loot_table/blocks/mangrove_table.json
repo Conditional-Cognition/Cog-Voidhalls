@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nonsense:mangrove_table"
+          "name": "voidhalls:mangrove_table"
         }
       ],
       "conditions": [

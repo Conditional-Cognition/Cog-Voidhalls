@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nonsense:diorite_table"
+          "name": "voidhalls:diorite_table"
         }
       ],
       "conditions": [

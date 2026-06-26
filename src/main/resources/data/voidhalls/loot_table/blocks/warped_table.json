@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nonsense:warped_table"
+          "name": "voidhalls:warped_table"
         }
       ],
       "conditions": [

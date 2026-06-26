@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nonsense:spruce_table"
+          "name": "voidhalls:spruce_table"
         }
       ],
       "conditions": [

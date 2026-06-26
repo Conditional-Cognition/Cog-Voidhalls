@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nonsense:jungle_table"
+          "name": "voidhalls:jungle_table"
         }
       ],
       "conditions": [

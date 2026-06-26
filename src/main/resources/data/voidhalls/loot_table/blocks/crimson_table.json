@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nonsense:crimson_table"
+          "name": "voidhalls:crimson_table"
         }
       ],
       "conditions": [

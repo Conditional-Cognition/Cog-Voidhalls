@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nonsense:granite_table"
+          "name": "voidhalls:granite_table"
         }
       ],
       "conditions": [

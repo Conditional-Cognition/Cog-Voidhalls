@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nonsense:birch_table"
+          "name": "voidhalls:birch_table"
         }
       ],
       "conditions": [

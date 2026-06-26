@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nonsense:acacia_table"
+          "name": "voidhalls:acacia_table"
         }
       ],
       "conditions": [

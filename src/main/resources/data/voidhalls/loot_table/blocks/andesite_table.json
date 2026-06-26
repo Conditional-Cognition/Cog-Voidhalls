@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nonsense:andesite_table"
+          "name": "voidhalls:andesite_table"
         }
       ],
       "conditions": [
