@@ -97,3 +97,19 @@ Made for Neoforge 1.21.1.
 # stop your mod loading on the server for example.
 #[features.${mod_id}]
 #openGLVersion="[3.2,)"
+
+[[dependencies.${mod_id}]]
+modId="create"
+type="required"
+reason="Required to use Create's copycat pipe generation features"
+versionRange="[6.0.0,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="copycats"
+type="required"
+reason="Required to use Create: Copycats+ pipe variants"
+versionRange="[3.0.0,)"
+ordering="AFTER"
+side="BOTH"
