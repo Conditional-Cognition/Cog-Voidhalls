@@ -1,19 +1,22 @@
 {
-  "parent": "minecraft:block/block",
-  "textures": {
-    "particle": "voidhalls:block/layer_zero_wall_skirting",
-    "trim": "voidhalls:block/layer_zero_wall_skirting"
-  },
-  "elements": [
-    {
-      "from": [-0.1, -0.1, -0.1],
-      "to": [16.1, 16.1, 16.1],
-      "faces": {
-        "north": { "texture": "#trim" },
-        "south": { "texture": "#trim" },
-        "east":  { "texture": "#trim" },
-        "west":  { "texture": "#trim" }
-      }
-    }
-  ]
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/block",
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"particle": "voidhalls:block/layer_zero_wall_skirting",
+		"trim": "voidhalls:block/layer_zero_wall_skirting"
+	},
+	"elements": [
+		{
+			"from": [-0.1, 0, -0.1],
+			"to": [16.1, 16, 16.1],
+			"faces": {
+				"north": { "uv": [0, 0, 16, 16], "texture": "#trim" },
+				"east":  { "uv": [0, 0, 16, 16], "texture": "#trim" },
+				"south": { "uv": [0, 0, 16, 16], "texture": "#trim" },
+				"west":  { "uv": [0, 0, 16, 16], "texture": "#trim" }
+			}
+		}
+	]
 }
