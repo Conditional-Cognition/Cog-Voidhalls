@@ -1,7 +1,9 @@
 {
-  "variants": {
-    "": {
-      "model": "voidhalls:block/layer_zero_wall"
+  "multipart": [
+    { "apply": { "model": "voidhalls:block/layer_zero_wall" } },
+    {
+      "when": { "grounded": "true" },
+      "apply": { "model": "voidhalls:block/layer_zero_wall_grounded" }
     }
-  }
+  ]
 }

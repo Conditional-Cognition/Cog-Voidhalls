@@ -1,0 +1,19 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "voidhalls:block/layer_zero_wall_skirting",
+    "trim": "voidhalls:block/layer_zero_wall_skirting"
+  },
+  "elements": [
+    {
+      "from": [-0.1, -0.1, -0.1],
+      "to": [16.1, 16.1, 16.1],
+      "faces": {
+        "north": { "texture": "#trim" },
+        "south": { "texture": "#trim" },
+        "east":  { "texture": "#trim" },
+        "west":  { "texture": "#trim" }
+      }
+    }
+  ]
+}

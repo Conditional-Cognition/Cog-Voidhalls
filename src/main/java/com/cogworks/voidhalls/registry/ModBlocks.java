@@ -69,9 +69,11 @@ public class ModBlocks {
             BLOCKS.register("layer_zero_wallpaper", () -> new LayerWallpaperBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS).noOcclusion()
             ));
-    public static final DeferredBlock<Block> LAYER_ZERO_WALL =
-            BLOCKS.registerSimpleBlock("layer_zero_wall",
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS));
+    public static final DeferredBlock<LayerWallBlock> LAYER_ZERO_WALL =
+            BLOCKS.register("layer_zero_wall", () -> new LayerWallBlock(
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)
+            ));
+
     public static final DeferredHolder<Block, StairBlock> LAYER_ZERO_WALL_STAIRS =
         BLOCKS.register("layer_zero_wall_stairs", () -> new StairBlock(
                 ModBlocks.LAYER_ZERO_WALL.get().defaultBlockState(),
@@ -79,6 +81,7 @@ public class ModBlocks {
     public static final DeferredHolder<Block, SlabBlock> LAYER_ZERO_WALL_SLAB =
         BLOCKS.register("layer_zero_wall_slab", () -> new SlabBlock(
                 BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_SLAB)));
+
     public static final DeferredBlock<Block> LAYER_ZERO_CEILING_TILE =
             BLOCKS.registerSimpleBlock("layer_zero_ceiling_tile",
                     BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE));
