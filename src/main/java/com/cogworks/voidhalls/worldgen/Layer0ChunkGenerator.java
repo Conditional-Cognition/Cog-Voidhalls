@@ -14,6 +14,7 @@ import net.minecraft.world.level.biome.BiomeManager;
 import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BooleanProperty; // Added for property tracking
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.*;
@@ -24,8 +25,6 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class Layer0ChunkGenerator extends ChunkGenerator {
-
-    private static final org.slf4j.Logger LOGGER = com.mojang.logging.LogUtils.getLogger();
 
     public static final MapCodec<Layer0ChunkGenerator> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(
@@ -42,15 +41,27 @@ public class Layer0ChunkGenerator extends ChunkGenerator {
     private static final int CEILING_Y = 10;
     private static final int DIM_HEIGHT = 64;
 
+    private static final int LIGHT_SPACING_X = 7;
+    private static final int LIGHT_SPACING_Z = 3;
+    private static final int LIGHT_PHASE_X = 3;
+    private static final int LIGHT_PHASE_Z = 1;
+
+    private static final float CARPET_DECAY_CHANCE = 0.08f;
+
     private static final ResourceLocation MAZE_KEY =
             ResourceLocation.fromNamespaceAndPath("voidhalls", "layer_0_maze");
+    private static final ResourceLocation CARPET_DECAY_KEY =
+            ResourceLocation.fromNamespaceAndPath("voidhalls", "layer_0_carpet_decay");
 
+    private final BlockState fuckinfAir;
     private final BlockState scaffoldState;
     private final BlockState ceilingTileState;
     private final BlockState wallState;
+    private final BlockState lightFixtureState;
 
     public Layer0ChunkGenerator(BiomeSource biomeSource) {
         super(biomeSource);
+        this.fuckinfAir = Blocks.AIR.defaultBlockState();
         this.scaffoldState = BuiltInRegistries.BLOCK
                 .get(ResourceLocation.fromNamespaceAndPath("voidhalls", "layer_zero_scaffold"))
                 .defaultBlockState();
@@ -60,6 +71,7 @@ public class Layer0ChunkGenerator extends ChunkGenerator {
         this.wallState = BuiltInRegistries.BLOCK
                 .get(ResourceLocation.fromNamespaceAndPath("voidhalls", "layer_zero_wall"))
                 .defaultBlockState();
+        this.lightFixtureState = Blocks.OCHRE_FROGLIGHT.defaultBlockState();
     }
 
     @Override
@@ -69,9 +81,8 @@ public class Layer0ChunkGenerator extends ChunkGenerator {
 
     @Override
     public @NotNull CompletableFuture<ChunkAccess> fillFromNoise(@NotNull Blender blender, RandomState randomState, @NotNull StructureManager structureManager, ChunkAccess chunk) {
-        long startNanos = System.nanoTime();
-
         PositionalRandomFactory mazeRandom = randomState.getOrCreateRandomFactory(MAZE_KEY);
+        PositionalRandomFactory decayRandom = randomState.getOrCreateRandomFactory(CARPET_DECAY_KEY);
         int minX = chunk.getPos().getMinBlockX();
         int minZ = chunk.getPos().getMinBlockZ();
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
@@ -79,11 +90,18 @@ public class Layer0ChunkGenerator extends ChunkGenerator {
         int corridorMin = (CELL_SIZE - CORRIDOR_WIDTH + 1) / 2;
         int corridorMax = corridorMin + CORRIDOR_WIDTH - 1;
 
+        BooleanProperty groundedProperty = null;
+        if (wallState.getProperties().stream().anyMatch(p -> p.getName().equals("grounded"))) {
+            groundedProperty = (BooleanProperty) wallState.getBlock().getStateDefinition().getProperty("grounded");
+        }
+
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
                 int worldX = minX + x;
                 int worldZ = minZ + z;
                 boolean open = isOpenColumn(worldX, worldZ, mazeRandom, corridorMin, corridorMax);
+                boolean isLightFixture = open && isLightFixtureColumn(worldX, worldZ, mazeRandom, corridorMin, corridorMax);
+                boolean carpetDecayed = isCarpetDecayed(worldX, worldZ, decayRandom);
 
                 for (int y = 0; y < DIM_HEIGHT; y++) {
                     pos.set(worldX, y, worldZ);
@@ -92,13 +110,31 @@ public class Layer0ChunkGenerator extends ChunkGenerator {
                     if (y < FLOOR_Y) {
                         state = scaffoldState;
                     } else if (!open) {
-                        state = (y <= CEILING_Y) ? wallState : scaffoldState;
+                        if (y <= CEILING_Y) {
+                            // If we are placing a wall block at the bottom level (FLOOR_Y), apply grounded = true
+                            if (y == FLOOR_Y && groundedProperty != null) {
+                                state = wallState.setValue(groundedProperty, true);
+                            } else if (groundedProperty != null) {
+                                state = wallState.setValue(groundedProperty, false);
+                            } else {
+                                state = wallState;
+                            }
+                        } else {
+                            state = scaffoldState;
+                        }
                     } else if (y == FLOOR_Y) {
-                        state = Blocks.BROWN_CARPET.defaultBlockState();
+                        RandomSource rand = randomState.getOrCreateRandomFactory(MAZE_KEY).at(worldX, 0, worldZ);
+                        if (rand.nextFloat() < 0.03f) {
+                            state = rand.nextBoolean() ?
+                                    BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("voidhalls", "spruce_table")).defaultBlockState() :
+                                    BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("voidhalls", "oak_table")).defaultBlockState();
+                        } else {
+                            state = carpetDecayed ? fuckinfAir : Blocks.BROWN_CARPET.defaultBlockState();
+                        }
                     } else if (y <= ROOM_TOP) {
                         state = Blocks.AIR.defaultBlockState();
                     } else if (y == CEILING_Y) {
-                        state = ceilingTileState;
+                        state = isLightFixture ? lightFixtureState : ceilingTileState;
                     } else {
                         state = scaffoldState;
                     }
@@ -107,9 +143,6 @@ public class Layer0ChunkGenerator extends ChunkGenerator {
                 }
             }
         }
-
-        double elapsedMs = (System.nanoTime() - startNanos) / 1_000_000.0;
-        LOGGER.debug("[voidhalls] fillFromNoise {} took {} ms", chunk.getPos(), elapsedMs);
 
         return CompletableFuture.completedFuture(chunk);
     }
@@ -127,17 +160,36 @@ public class Layer0ChunkGenerator extends ChunkGenerator {
 
         if (onXBoundary) {
             RandomSource rand = mazeRandom.at(cellX, 0, cellZ);
-            return rand.nextFloat() < WALL_OPEN_CHANCE
-                    && localZ >= corridorMin && localZ <= corridorMax;
+            return rand.nextFloat() < WALL_OPEN_CHANCE && localZ >= corridorMin && localZ <= corridorMax;
         }
 
         if (onZBoundary) {
             RandomSource rand = mazeRandom.at(cellX, 1, cellZ);
-            return rand.nextFloat() < WALL_OPEN_CHANCE
-                    && localX >= corridorMin && localX <= corridorMax;
+            return rand.nextFloat() < WALL_OPEN_CHANCE && localX >= corridorMin && localX <= corridorMax;
         }
 
         return true;
+    }
+
+    private boolean isLightFixtureColumn(int worldX, int worldZ, PositionalRandomFactory mazeRandom, int corridorMin, int corridorMax) {
+        if (Math.floorMod(worldX, LIGHT_SPACING_X) != LIGHT_PHASE_X) return false;
+
+        int zMod = Math.floorMod(worldZ, LIGHT_SPACING_Z);
+        int partnerZ;
+        if (zMod == LIGHT_PHASE_Z) {
+            partnerZ = worldZ + 1;
+        } else if (zMod == LIGHT_PHASE_Z + 1) {
+            partnerZ = worldZ - 1;
+        } else {
+            return false;
+        }
+
+        return isOpenColumn(worldX, partnerZ, mazeRandom, corridorMin, corridorMax);
+    }
+
+    private boolean isCarpetDecayed(int worldX, int worldZ, PositionalRandomFactory decayRandom) {
+        RandomSource rand = decayRandom.at(worldX, 0, worldZ);
+        return rand.nextFloat() < CARPET_DECAY_CHANCE;
     }
 
     @Override

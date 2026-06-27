@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/handheld",
+    "textures": {
+        "layer0": "voidhalls:item/iron_tablespoon"
+    }
+}

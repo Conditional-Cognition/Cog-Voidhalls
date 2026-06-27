@@ -9,6 +9,30 @@
   "block.voidhalls.layer_zero_ceiling_tile": "Layer Zero Ceiling Tile",
   "block.voidhalls.layer_zero_scaffold": "Layer Zero Scaffold",
 
+  "item.voidhalls.stone_tablespoon": "Stone Tablespoon",
+  "item.voidhalls.wooden_tablespoon": "Wooden Tablespoon",
+  "item.voidhalls.iron_tablespoon": "Iron Tablespoon",
+  "item.voidhalls.golden_tablespoon": "Golden Tablespoon",
+  "item.voidhalls.diamond_tablespoon": "Diamond Tablespoon",
+  "item.voidhalls.netherite_tablespoon": "Netherite Tablespoon",
+
+  "block.voidhalls.oak_table": "Oak Table",
+  "block.voidhalls.spruce_table": "Spruce Table",
+  "block.voidhalls.birch_table": "Birch Table",
+  "block.voidhalls.jungle_table": "Jungle Table",
+  "block.voidhalls.acacia_table": "Acacia Table",
+  "block.voidhalls.dark_oak_table": "Dark Oak Table",
+  "block.voidhalls.mangrove_table": "Mangrove Table",
+  "block.voidhalls.cherry_table": "Cherry Table",
+  "block.voidhalls.bamboo_table": "Bamboo Table",
+  "block.voidhalls.crimson_table": "Crimson Table",
+  "block.voidhalls.warped_table": "Warped Table",
+
+  "block.voidhalls.andesite_table": "Andesite Table",
+  "block.voidhalls.diorite_table": "Diorite Table",
+  "block.voidhalls.granite_table": "Granite Table",
+  "block.voidhalls.stone_table": "Stone Table",
+
   "item.voidhalls.test_fluid_bucket": "Test Fluid Bucket",
   "item.voidhalls.test_item": "Test Item",
 
