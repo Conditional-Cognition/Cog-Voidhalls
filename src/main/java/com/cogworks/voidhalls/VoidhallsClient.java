@@ -52,12 +52,4 @@ public class VoidhallsClient {
             }
         }, ModFluidTypes.TEST_FLUID_TYPE.get());
     }
-    @SubscribeEvent
-    public static void onRegisterRenderTypes(RegisterNamedRenderTypesEvent event) {
-        event.register(
-                ResourceLocation.fromNamespaceAndPath("voidhalls", "test_fluid_block"),
-                RenderType.translucent(),
-                RenderType.translucentMovingBlock()
-        );
-    }
 }

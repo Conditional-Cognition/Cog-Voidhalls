@@ -1,0 +1,14 @@
+{
+  "type": "voidhalls:layer_0",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "layers": [
+        { "block": "minecraft:yellow_concrete", "height": 1 }
+      ],
+      "biome": "voidhalls:layer_0",
+      "lakes": false,
+      "features": false
+    }
+  }
+}
