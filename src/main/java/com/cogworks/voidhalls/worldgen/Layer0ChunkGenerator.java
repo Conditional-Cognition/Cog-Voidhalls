@@ -124,7 +124,7 @@ public class Layer0ChunkGenerator extends ChunkGenerator {
                         }
                     } else if (y == FLOOR_Y) {
                         RandomSource rand = randomState.getOrCreateRandomFactory(MAZE_KEY).at(worldX, 0, worldZ);
-                        if (rand.nextFloat() < 0.03f) {
+                        if (rand.nextFloat() < 0.0003f) {
                             state = rand.nextBoolean() ?
                                     BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("voidhalls", "spruce_table")).defaultBlockState() :
                                     BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("voidhalls", "oak_table")).defaultBlockState();
