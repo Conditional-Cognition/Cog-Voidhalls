@@ -13,7 +13,7 @@ import static com.cogworks.voidhalls.Voidhalls.MODID;
 public class ModWorldgen {
     public static final DeferredRegister<MapCodec<? extends ChunkGenerator>> CHUNK_GENERATORS =
             DeferredRegister.create(Registries.CHUNK_GENERATOR, MODID);
-
+    @SuppressWarnings("unused")
     public static final DeferredHolder<MapCodec<? extends ChunkGenerator>, MapCodec<Layer0ChunkGenerator>> LAYER_0_GENERATOR =
             CHUNK_GENERATORS.register("layer_0", () -> Layer0ChunkGenerator.CODEC);
 
