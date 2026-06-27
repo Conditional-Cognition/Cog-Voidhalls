@@ -1,19 +1,10 @@
 {
   "type": "voidhalls:layer_0",
   "generator": {
-    "type": "minecraft:flat",
-    "settings": {
-      "layers": [
-        { "block": "voidhalls:layer_zero_scaffold", "height": 3 },
-        { "block": "voidhalls:layer_zero_ceiling_tile", "height": 1 },
-        { "block": "voidhalls:layer_zero_scaffold", "height": 1 },
-        { "block": "minecraft:brown_carpet", "height": 1 },
-        { "block": "minecraft:air", "height": 3 },
-        { "block": "voidhalls:layer_zero_ceiling_tile", "height": 1 }
-      ],
-      "biome": "voidhalls:layer_0",
-      "lakes": false,
-      "features": false
+    "type": "voidhalls:layer_0",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "voidhalls:layer_0"
     }
   }
 }

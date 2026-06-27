@@ -32,6 +32,8 @@ public class Voidhalls {
         com.cogworks.voidhalls.registry.ModFluidTypes.register(modEventBus);
         com.cogworks.voidhalls.registry.ModFluids.register(modEventBus);
 
+        ModWorldgen.register(modEventBus);
+
         NeoForge.EVENT_BUS.register(this);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
@@ -40,7 +42,7 @@ public class Voidhalls {
         LOGGER.info("HELLO FROM COMMON SETUP");
     }
 
-    @SubscribeEvent
+    @SubscribeEvent @SuppressWarnings("unused")
     public void onServerStarting(ServerStartingEvent event) {
         LOGGER.info("HELLO from server starting");
     }
