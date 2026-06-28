@@ -1,0 +1,11 @@
+{
+  "type": "voidhalls:layer_1",
+  "generator": {
+    "type": "voidhalls:layer_1",
+    "biome_source": {
+      "type": "minecraft:checkerboard",
+      "biomes": ["voidhalls:layer_1_wide", "voidhalls:layer_1_narrow"],
+      "scale": 3
+    }
+  }
+}
